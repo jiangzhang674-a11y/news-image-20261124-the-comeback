@@ -176,14 +176,14 @@ def build(data):
     svg.rect(M, 212, CW, 2, INK)
     # ---- dateline
     svg.text(M, 250, "Tuesday 24 November 2026", "sans-bold", 25)
-    svg.text(W - M, 250, "EIGHT STORIES FROM AROUND THE GLOBE", "sans-bold", 25, anchor="end")
+    svg.text(W - M, 250, "NINE STORIES FROM AROUND THE GLOBE", "sans-bold", 25, anchor="end")
     svg.rect(M, 268, CW, 2, INK)
 
-    y = 312  # cursor (baseline of next kicker)
+    y = 304  # cursor (baseline of next kicker)
 
     # ---- lead story (No. 1)
     badge(svg, M, y, "1")
-    svg.text(M + 40, y, lead["kicker"], "sans-bold", 25, fill=ACCENT)
+    svg.text(M + 40, y, lead["kicker"], "sans-bold", 26, fill=ACCENT)
     y += 14
     size, lines = headline_lines(lead["headline"], "serif-bold", 100, CW)
     assert len(lines) <= 2, f"lead headline still {len(lines)} lines"
@@ -192,26 +192,19 @@ def build(data):
         svg.text(M, y, ln, "serif-bold", size)
     y += 22
     for ln in wrap(lead["standfirst"], "serif-italic", 32, CW):
-        y += 38
+        y += 35
         svg.text(M, y, ln, "serif-italic", 32)
     # stat strip: +31% / $4.0T / 11 DAYS — the three required figures
-    y += 26
-    box_w, box_h, gap = (CW - 2 * 18) / 3, 96, 18
+    y += 22
+    box_w, box_h, gap = (CW - 2 * 18) / 3, 88, 18
     for i, st in enumerate(lead["stats"]):
         bx = M + i * (box_w + gap)
         svg.rect(bx, y, box_w, box_h, "#FFFFFF", stroke=INK, sw=2)
-        svg.text(bx + box_w / 2, y + 56, st["value"], "sans-bold", 52, anchor="middle")
-        svg.text(bx + box_w / 2, y + 86, st["label"], "sans", 21, fill=GREY, anchor="middle")
-    y += box_h + 22
-    # body, full width (v2: the MARKET REACTION chart was dropped to make
-    # room for 8 stories; the stat strip above already shows +31% / $4.0T)
-    by = y
-    for para in lead["body"][:1]:
-        for ln in wrap(para, "serif", 27, CW):
-            by += 35
-            svg.text(M, by, ln, "serif", 27)
-        by += 10
-    y = by + 14
+        svg.text(bx + box_w / 2, y + 52, st["value"], "sans-bold", 48, anchor="middle")
+        svg.text(bx + box_w / 2, y + 80, st["label"], "sans", 21, fill=GREY, anchor="middle")
+    y += box_h + 20
+    # v3: lead body dropped — its facts are already in the standfirst and
+    # the stat strip; the space goes to the 9th story (Tiangong) below.
     svg.rect(M, y, CW, 3, INK)
     y += 26
 
@@ -219,22 +212,22 @@ def build(data):
     mid = [stories["myanmar-icj"], stories["climate-cop31"], stories["ukraine-libya"]]
     for num, st in zip(("2", "3", "4"), mid):
         badge(svg, M, y, num)
-        svg.text(M + 40, y, st["kicker"], "sans-bold", 24, fill=ACCENT)
+        svg.text(M + 40, y, st["kicker"], "sans-bold", 25, fill=ACCENT)
         y += 12
         size, lines = headline_lines(st["headline"], "serif-bold", 50, CW)
         assert len(lines) <= 2, f"headline {st['id']} still {len(lines)} lines"
         for ln in lines:
-            y += 50
+            y += 48
             svg.text(M, y, ln, "serif-bold", size)
         y += 8
-        blines = wrap(st["body"][0], "serif", 25, CW)
+        blines = wrap(st["body"][0], "serif", 24, CW)
         assert len(blines) <= 2, f"body {st['id']} wraps to {len(blines)} lines"
         for ln in blines:
-            y += 30
-            svg.text(M, y, ln, "serif", 25)
+            y += 28
+            svg.text(M, y, ln, "serif", 24)
         y += 10
         svg.rect(M, y, CW, 2, INK)
-        y += 26
+        y += 22
 
     # ---- stories 5-8: 2x2 brief grid
     grid = [stories["nepal-quake"], stories["gaza-strikes"],
@@ -249,12 +242,12 @@ def build(data):
             cx = M + col * (col_w + 36)
             cy = grid_top + row * (card_h + row_gap)
             badge(svg, cx, cy, num)
-            svg.text(cx + 40, cy, st["kicker"], "sans-bold", 20, fill=ACCENT)
-            size, lines = fit_lines(st["headline"], "serif-bold", 28, 2, col_w)
+            svg.text(cx + 40, cy, st["kicker"], "sans-bold", 21, fill=ACCENT)
+            size, lines = fit_lines(st["headline"], "serif-bold", 30, 2, col_w)
             hy = cy + 38
             for ln in lines:
                 svg.text(cx, hy, ln, "serif-bold", size)
-                hy += 34
+                hy += 36
             by = hy + 4
             blines = wrap(st["body"][0], "serif", 20, col_w)
             assert len(blines) <= 2, f"grid body {st['id']} wraps to {len(blines)} lines"
@@ -265,14 +258,33 @@ def build(data):
              grid_top + 2 * card_h + row_gap, GREY, 1)
     y = grid_top + 2 * card_h + row_gap + 14
 
+    # ---- story 9: ALSO strip, full width (v3: space + named person)
+    st9 = stories["tiangong-shenzhou24"]
+    y += 12
+    badge(svg, M, y, "9")
+    svg.text(M + 40, y, st9["kicker"], "sans-bold", 24, fill=ACCENT)
+    y += 12
+    size, lines = headline_lines(st9["headline"], "serif-bold", 40, CW)
+    assert len(lines) <= 1, f"strip headline {len(lines)} lines"
+    for ln in lines:
+        y += 42
+        svg.text(M, y, ln, "serif-bold", size)
+    y += 4
+    blines = wrap(st9["body"][0], "serif", 23, CW)
+    assert len(blines) <= 2, f"strip body wraps to {len(blines)} lines"
+    for ln in blines:
+        y += 26
+        svg.text(M, y, ln, "serif", 23)
+    y += 6
+
     # ---- market strip (verified numbers only: +31% and $4.0T)
     svg.rect(M, y, CW, 42, INK)
     svg.text(W / 2, y + 29, "MARKETS — NVIDIA +31% AS HUANG RETURNS · VALUE BACK NEAR $4.0T",
              "sans-bold", 22, fill="#FFFFFF", anchor="middle")
-    y += 42 + 10
+    y += 42 + 6
 
     # ---- footer
-    assert y <= 1745, f"layout overflow: y={y}"
+    assert y <= 1700, f"layout overflow: y={y}"
     svg.rect(M, y, CW, 2, INK)
     svg.text(M, y + 30, "THE COMEBACK — Tuesday 24 November 2026",
              "sans-bold", 20)
