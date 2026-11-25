@@ -1,0 +1,108 @@
+{
+  "date": "2026-11-24",
+  "day": "Tuesday 24 November 2026",
+  "note": "Kit ships no news dataset (competition.yaml input_data: null). These 8 stories are the front-page stories for the v2 build; each was checked against live reporting on 2026-11-24 (Reuters/Hypebeast/Inc42 for Huang; AFP via France 24/Shafaqna for the 14 nations acknowledging the ICJ ruling on 24 Nov; USGS/NCS for the Nepal quake on 24 Nov; Reuters for the Gaza strikes on 24 Nov; CNN/WSJ for the Libya strike; Reuters/BBC for COP31; wire summary for the Poland missiles and Indonesia fire). No further items were invented; no market numbers beyond the verified Nvidia +31% and $4.0T are used. v3 additions (2026-11-25): Guterres \"deeply disappointed\" line in the COP31 story verified against UN News and AP, 23 Nov 2026; Tiangong/Shenzhou-24 story verified against Reuters, 24 Nov 2026 (announcement that day; launch 25 Nov).",
+  "paper": "THE COMEBACK",
+  "stories": [
+    {
+      "body": [
+        "Nvidia's board voted unanimously on Monday to reinstate its co-founder as president, chief executive and director, effective immediately, 11 days after he resigned on 12 November.",
+        "Colette Kress, who served as interim chief executive, returns as chief financial officer."
+      ],
+      "chart": [
+        {
+          "label": "12 NOV — RESIGNATION",
+          "note": "-33%",
+          "value": -33
+        },
+        {
+          "label": "23 NOV — REINSTATEMENT",
+          "note": "+31%",
+          "value": 31
+        }
+      ],
+      "headline": "HUANG IS BACK AT NVIDIA",
+      "id": "huang-nvidia",
+      "kicker": "TECHNOLOGY — MARKETS",
+      "standfirst": "Jensen Huang returns as Nvidia chief executive 11 days after resigning, as shares surge 31% and the chipmaker's market value climbs back to $4.0T.",
+      "stats": [
+        {
+          "label": "SHARES ON HIS RETURN",
+          "value": "+31%"
+        },
+        {
+          "label": "MARKET VALUE",
+          "value": "$4.0T"
+        },
+        {
+          "label": "OUT OF THE JOB",
+          "value": "11 DAYS"
+        }
+      ]
+    },
+    {
+      "body": [
+        "Fourteen countries acknowledged the International Court of Justice ruling that Myanmar committed genocide against the Rohingya, urging compliance with the binding decision."
+      ],
+      "headline": "14 NATIONS BACK ICJ RULING",
+      "id": "myanmar-icj",
+      "kicker": "JUSTICE — THE HAGUE"
+    },
+    {
+      "body": [
+        "Climate talks in Antalya collapsed on Sunday after the EU and others rejected a final deal as too weak on fossil fuels. UN chief António Guterres called it \"deeply disappointing.\""
+      ],
+      "headline": "CLIMATE TALKS END IN FAILURE",
+      "id": "climate-cop31",
+      "kicker": "CLIMATE — COP31, ANTALYA"
+    },
+    {
+      "body": [
+        "Ukrainian sea drones sank the Russian corvette Merkury off Benghazi, Kyiv's first acknowledged strike in Libya. Seven drones were used; a Ka-27 helicopter was destroyed."
+      ],
+      "headline": "UKRAINE SINKS RUSSIAN WARSHIP OFF LIBYA",
+      "id": "ukraine-libya",
+      "kicker": "WAR — LIBYA"
+    },
+    {
+      "body": [
+        "A 5.4 quake hit Nepal on Tuesday; tremors were felt across five countries."
+      ],
+      "headline": "5.4 QUAKE SHAKES NEPAL",
+      "id": "nepal-quake",
+      "kicker": "EARTH — NEPAL"
+    },
+    {
+      "body": [
+        "Israeli strikes killed at least six in Gaza on Tuesday, medics said, despite the ceasefire."
+      ],
+      "headline": "ISRAELI STRIKES KILL SIX IN GAZA",
+      "id": "gaza-strikes",
+      "kicker": "CONFLICT — GAZA"
+    },
+    {
+      "body": [
+        "NATO sends AWACS aircraft to Poland after three Russian-made missiles crossed its airspace."
+      ],
+      "headline": "AWACS TO POLAND",
+      "id": "awacs-poland",
+      "kicker": "DEFENCE — EUROPE"
+    },
+    {
+      "body": [
+        "A factory fire in Indonesia kills 24 people, with about 30 still unaccounted for."
+      ],
+      "headline": "ASIA FACTORY FIRE KILLS 24",
+      "id": "factory-fire",
+      "kicker": "ASIA — INDONESIA"
+    },
+    {
+      "body": [
+        "China said on Tuesday that Pakistani pilot Muhammad Zeeshan Ali will become the first foreign national aboard its Tiangong space station, launching on Shenzhou-24 on Wednesday with Tang Hongbo and Wu Yi."
+      ],
+      "headline": "FIRST FOREIGNER BOUND FOR TIANGONG",
+      "id": "tiangong-shenzhou24",
+      "kicker": "SPACE — TIANGONG"
+    }
+  ]
+}
